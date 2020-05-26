@@ -1,0 +1,13 @@
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\bin\WcfProjetFilm.dll.config
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\bin\WcfProjetFilm.dll
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\bin\WcfProjetFilm.pdb
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\bin\EntityFramework.dll
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\bin\EntityFramework.SqlServer.dll
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\bin\EntityFramework.xml
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\bin\EntityFramework.SqlServer.xml
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\bin\fr\EntityFramework.resources.dll
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\obj\Debug\WcfProjetFilm.csprojAssemblyReference.cache
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\obj\Debug\WcfProjetFilm.csproj.CoreCompileInputs.cache
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\obj\Debug\WcfProjetFilm.csproj.CopyComplete
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\obj\Debug\WcfProjetFilm.dll
+D:\Cours informatique\Doranco\C#\workspace\Semaine5_\WcfProjetFilm\obj\Debug\WcfProjetFilm.pdb

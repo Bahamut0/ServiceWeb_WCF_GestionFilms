@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjetFilmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="drapeau">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CheminImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Pays_Id" Type="Int32" />
+    <NavigationProperty Name="pays" Relationship="Self.FK_PaysDrapeau" FromRole="drapeau" ToRole="pays" />
+  </EntityType>
+  <EntityType Name="film">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Titre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Synopsis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Annee" Type="Int32" Nullable="false" />
+    <Property Name="Affiche" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="genre" Relationship="Self.FilmGenre" FromRole="film" ToRole="genre" />
+    <NavigationProperty Name="pays" Relationship="Self.FilmPays" FromRole="film" ToRole="pays" />
+  </EntityType>
+  <EntityType Name="genre">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="film" Relationship="Self.FilmGenre" FromRole="genre" ToRole="film" />
+  </EntityType>
+  <EntityType Name="pays">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Libelle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="drapeau" Relationship="Self.FK_PaysDrapeau" FromRole="pays" ToRole="drapeau" />
+    <NavigationProperty Name="film" Relationship="Self.FilmPays" FromRole="pays" ToRole="film" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_PaysDrapeau">
+    <End Role="pays" Type="Self.pays" Multiplicity="0..1" />
+    <End Role="drapeau" Type="Self.drapeau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pays">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="drapeau">
+        <PropertyRef Name="Pays_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FilmGenre">
+    <End Role="film" Type="Self.film" Multiplicity="*" />
+    <End Role="genre" Type="Self.genre" Multiplicity="*" />
+  </Association>
+  <Association Name="FilmPays">
+    <End Role="film" Type="Self.film" Multiplicity="*" />
+    <End Role="pays" Type="Self.pays" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ProjetFilmEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="drapeau" EntityType="Self.drapeau" />
+    <EntitySet Name="film" EntityType="Self.film" />
+    <EntitySet Name="genre" EntityType="Self.genre" />
+    <EntitySet Name="pays" EntityType="Self.pays" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_PaysDrapeau" Association="Self.FK_PaysDrapeau">
+      <End Role="pays" EntitySet="pays" />
+      <End Role="drapeau" EntitySet="drapeau" />
+    </AssociationSet>
+    <AssociationSet Name="FilmGenre" Association="Self.FilmGenre">
+      <End Role="film" EntitySet="film" />
+      <End Role="genre" EntitySet="genre" />
+    </AssociationSet>
+    <AssociationSet Name="FilmPays" Association="Self.FilmPays">
+      <End Role="film" EntitySet="film" />
+      <End Role="pays" EntitySet="pays" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
